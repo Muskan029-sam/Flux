@@ -5,26 +5,55 @@
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Flux — Robotics Demos</title>
   <link rel="stylesheet" href="css/styles.css" />
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 <body>
   <header>
-    <h1>Flux</h1>
-    <p>Compact robotics and engineering studio</p>
+    <div class="container">
+      <h1>Flux</h1>
+      <nav>
+        <a href="#demo">Demo</a>
+        <a href="#about">About</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </div>
   </header>
 
-  <main>
-    <section id="demo">
-      <h2>Live Telemetry</h2>
-      <div id="telemetry">No data yet</div>
-      <button id="refresh">Refresh</button>
+  <main class="container">
+    <section id="hero">
+      <h2>Compact robotics and engineering studio</h2>
+      <p>Live demos, telemetry dashboards, and project showcases — inspired by Robocept Online.</p>
     </section>
 
-    <section id="about">
-      <h2>Contact</h2>
+    <section id="demo">
+      <h2>Live Telemetry</h2>
+      <div class="card">
+        <canvas id="telemetryChart" height="140"></canvas>
+        <pre id="telemetry">No data yet</pre>
+        <div class="controls">
+          <button id="refresh">Refresh</button>
+          <button id="simulate">Simulate once</button>
+        </div>
+      </div>
+    </section>
+
+    <aside id="about">
+      <h3>Contact</h3>
       <p>Email: <strong>contactflux432@gmail.com</strong></p>
       <p>Portfolio: <a href="https://Muskan029-sam.github.io/flux">https://Muskan029-sam.github.io/flux</a></p>
+      <h4>Deploy</h4>
+      <p>This site is prepared to deploy to Firebase Hosting + Functions for telemetry.</p>
+    </aside>
+
+    <section id="contact">
+      <h3>Get involved</h3>
+      <p>Open an issue or pull request to contribute demos, telemetry adapters or designs.</p>
     </section>
   </main>
+
+  <footer>
+    <div class="container">© Flux — Robotics Demos</div>
+  </footer>
 
   <script src="js/main.js"></script>
 </body>

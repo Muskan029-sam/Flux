@@ -1,37 +1,32 @@
-# Flux
+Flux — Robocept-style site
 
-Compact robotics and engineering studio: prototypes to production.  
-Live demo: https://Muskan029-sam.github.io/flux  
-Contact: **contactflux432@gmail.com**
+This branch adds a richer frontend, a telemetry visualization using Chart.js, and a Firebase Hosting + Functions stub so you can host this site on Google (Firebase).
 
-## About
-Flux builds compact automated systems, embedded controllers, and cloud tooling that connect robotics hardware with production-ready software. We focus on practical machine vision, motion control, telemetry, and CI/CD to deliver reliable pick-and-place, gantry, and bespoke automation solutions.
+What I added
+- index.html: a more complete landing page and telemetry dashboard
+- css/styles.css: improved styles
+- js/main.js: telemetry polling and Chart.js integration
+- functions/: Firebase Functions stub that serves /api/telemetry with simulated data
+- firebase.json: hosting config to rewrite /api/** to the functions
 
-## Tech stack
-- Frontend: HTML, CSS, JavaScript (or your chosen framework)  
-- Build / deploy: GitHub Pages (static site), optional Netlify/Vercel  
-- Optional: Node.js for tooling; Python/C++ for embedded components
+Quick deploy guide (Firebase Hosting + Functions)
+1) Install Firebase CLI: npm install -g firebase-tools
+2) Login and choose/create project: firebase login
+3) From the repo root: firebase init hosting,functions
+   - When prompted, select the existing project or create a new one.
+   - Use "public" as the public directory and choose to configure as a single-page app (yes).
+   - Choose JavaScript for functions, and when asked to install dependencies, say yes.
+4) Copy this branch to your local machine and install functions deps: cd functions && npm install
+5) Deploy: firebase deploy --only hosting,functions
 
-## Quick start (local)
-1. Clone the repo  
-2. Install dependencies if applicable (e.g., `npm install`)  
-3. Run dev server (e.g., `npm start`) or open `index.html` in browser
+Notes and next steps
+- You must pick or create a Firebase project (this deploys to Google-managed hosting).
+- For production telemetry, replace the stub in functions/index.js with your real telemetry backend or forward data from your devices.
+- If you prefer Google Cloud Run or App Engine, I can produce a Dockerfile/Service YAML instead.
 
-## Features
-- Portfolio and demos  
-- Project case studies and specs  
-- Contact and inquiry form (mailto:contactflux432@gmail.com)  
-- Deployment-ready static site for GitHub Pages
+If you want, I can:
+- Open a PR with these changes (I can create the PR in your repo).
+- Add a GitHub Action to automatically deploy to Firebase on merges to main.
+- Replace polling with Socket.IO for true real-time telemetry.
 
-## Status
-Active development. Check the Live demo link for the latest demos and project updates.
-
-## Contributing
-Open to collaboration and PRs. Avoid committing secrets or large binary files.
-
-## License
-MIT — see LICENSE file.
-
-## Credits
-Third-party libraries and assets listed in code comments and acknowledgements.
-
+Tell me which of those you want me to do next.
